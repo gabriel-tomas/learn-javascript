@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,700&display=swap');
+
+:root {
+    --primary-color: rgb(59, 88, 148);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Roboto Flex", sans-serif;
+    font-size: 17px;
+    line-height: 1.5rem;
+}
+
+body {
+    background-color: var(--primary-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 560px;
+    margin-inline: auto;
+    background-color: white;
+    padding: clamp(15px, 3%, 30px);
+    border-radius: 5px;
+}
+
+.gap-bottom0 {
+    margin-bottom: .8rem;
+}
+
+.gap-bottom01 {
+    margin-bottom: 1.7rem;
+}
+
+.gap-bottom1 {
+    margin-bottom: 1.6rem;
+}
+
+table th {
+    text-align: left;
+    padding-bottom: 5px;
+}
+
+table td, table th {
+    width: 250px;
+}
+
+form {
+    width: 100%;
+    margin-inline: auto;
+}
+
+form > div {
+    display: flex;
+    flex-direction: column;
+    margin-inline: auto;
+}
+
+form input {
+    width: 100%;
+    height: 40px;
+    border-radius: 3px;
+    border: none;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    background-color: rgba(188, 188, 188, 0.252);
+    padding: 2%;
+    font-size: .8rem;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+form input:focus {
+    background-color: rgba(24, 24, 146, 0.252);
+    outline: none;
+}
+
+form button {
+    height: 40px;
+    width: 50%;
+    margin-inline: auto;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    border: none;
+    font-family: "Roboto Flex", sans-serif;
+    font-size: 1.2rem;
+    color: white;
+    cursor: pointer;
+}
+
+form button:hover {
+    filter: contrast(120%);
+}
+
+.resultados {
+    width: 100%;
+    margin-top: 1.3rem;
+}
+
+.resultados > p {
+    padding: 1.2% 2%;
+}
+
+.resultados .value-correct {
+    background-color: rgb(85, 150, 248);
+}
+
+.resultados .value-incorrect {
+    background-color: rgb(233, 76, 76);
+}
