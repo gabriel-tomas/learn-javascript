@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,700&display=swap');
+
+:root {
+    --primary-color: rgb(59, 88, 148);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, button {
+    font-family: "Roboto Flex", sans-serif;
+    font-size: 17px;
+    line-height: 1.5rem;
+}
+
+body {
+    background-color: var(--primary-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+.container {
+    max-width: 720px;
+    margin-inline: auto;
+    background-color: white;
+    padding: clamp(20px, 3%, 30px);
+    border-radius: 5px;
+}
+
+.gap-bottom0 {
+    margin-bottom: .8rem;
+}
+
+.gap-bottom1 {
+    margin-bottom: calc(1.6rem + 4%);
+}
+
+form {
+    width: 100%;
+    margin-inline: auto;
+}
+
+form > div {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-inline: auto;
+}
+
+form input {
+    width: 100%;
+    height: 40px;
+    border-radius: 3px;
+    border: none;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    background-color: rgba(188, 188, 188, 0.252);
+    padding: 2%;
+    font-size: .8rem;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+form input:focus {
+    background-color: rgba(24, 24, 146, 0.252);
+    outline: none;
+}
+
+form button {
+    height: 40px;
+    width: 50%;
+    margin-inline: auto;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    border: none;
+    font-family: "Roboto Flex", sans-serif;
+    font-size: 1.2rem;
+    color: white;
+    cursor: pointer;
+}
+
+form button:hover {
+    filter: contrast(120%);
+}
+
+.temporizador {
+    font-size: clamp(4rem, 6vw + 1rem, 8rem);
+}
+
+.buttons-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: calc(2.2rem + 4%);
+}
+
+.buttons-container > button {
+    width: 30%;
+    height: 30px;
+    border-radius: 100px;
+    font-weight: 600;
+    transition: filter 200ms;
+}
+
+.buttons-container > button:hover {
+    filter: saturate(150%);
+}
+
+.buttons-container > button:active {
+    filter: brightness(90%);
+}
+
+.buttons-container > .iniciar-button {
+    background-color: rgb(88, 212, 88);
+}
+
+.buttons-container > .pausar-button {
+    background-color: rgb(212, 88, 88);
+}
+
+.buttons-container > .zerar-button {
+    background-color: rgb(216, 216, 216);
+}
