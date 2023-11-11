@@ -19,9 +19,7 @@ function Produto(nome, preco, estoque) {
             writable: true,
             configurable: false
         }
-    });
-    Object.defineProperties(this,)
-    
+    });    
 }
 
 const p1 = new Produto("Calça", 23, 3);
