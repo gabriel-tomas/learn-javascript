@@ -1,0 +1,1 @@
+{"version":3,"file":"bundle.js","mappings":"0cAAAA,MAAM,e,uuBAIGC,CAAA,GAFI,U","sources":["webpack://aula93/./src/index.js"],"sourcesContent":["alert('Olá, Mundo!');\r\n\r\nconst nome = \"Gabriel\";\r\n\r\nconst obj = {...nome}"],"names":["alert","_objectSpread"],"sourceRoot":""}
