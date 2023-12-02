@@ -1,8 +1,7 @@
 const path = require("path");
 const escrever = require("./modules/escrever");
 const ler = require("./modules/ler");
-const { json } = require("stream/consumers");
-const caminhoArquivo = path.resolve(__dirname, "..", "teste.json");
+const caminhoArquivo = path.resolve(__dirname, "teste.json");
 
 const pessoas = [
     {
