@@ -1,0 +1,22 @@
+<%- include("includes/head") %>
+    <section class="container">
+        <h1 class="gap-bottom0">
+          <% if(typeof titulo !== "undefined") {%>
+            <%= titulo %>
+          <% } else {%>
+            Título não foi enviado
+          <% } %>
+        </h1>
+        <div class="gap-bottom0">
+          <form action="" method="post">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <div>
+              <label for="cliente">Cliente:</label>
+              <input type="text">
+            </div>
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
+      </section>
+    <script src="./assets/js/bundle.js"></script>
+<%- include("includes/footer") %>
