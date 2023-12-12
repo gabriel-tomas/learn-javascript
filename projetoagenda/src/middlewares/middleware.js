@@ -1,5 +1,6 @@
 exports.middlewareGlobal = (req, res, next) => {
-    res.locals.umaVariavelLocal = "Isso pode aplicado para todas as rotas e páginas.";
+    res.locals.errors = req.flash("errors");
+    res.locals.success = req.flash("success");
     next();
 }
 
