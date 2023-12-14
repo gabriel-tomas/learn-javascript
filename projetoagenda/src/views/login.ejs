@@ -24,7 +24,7 @@
                         </div>
                         <div class="form-group">
                             <label for="signup-password">Senha</label>
-                            <input type="password" class="form-control" id="signup-email" name="password">
+                            <input type="password" class="form-control" id="signup-password" name="password">
                           </div>
                         <button type="submit" class="btn btn-primary">Criar conta</button>
                     </form>
@@ -38,12 +38,12 @@
                     <form action="/login/login" method="post">
                         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                         <div class="form-group">
-                          <label for="signup-email">Endereço de email</label>
-                          <input type="email" class="form-control" id="signup-email" name="email">
+                          <label for="login-email">Endereço de email</label>
+                          <input type="email" class="form-control" id="login-email" name="email">
                         </div>
                         <div class="form-group">
-                            <label for="signup-password">Senha</label>
-                            <input type="password" class="form-control" id="signup-email" name="password">
+                            <label for="login-password">Senha</label>
+                            <input type="password" class="form-control" id="login-password" name="password">
                           </div>
                         <button type="submit" class="btn btn-primary">Entrar</button>
                     </form>
