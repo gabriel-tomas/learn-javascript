@@ -14,6 +14,9 @@ class Login {
         this.body = body;
         this.erros = [];
         this.user = null;
+        /* console.log(mongoose.models.Login);
+        console.log(LoginModel); 
+        console.log(mongoose.modelNames());*/
     }
 
     async register() {
@@ -24,17 +27,26 @@ class Login {
         const salt = bcryptjs.genSaltSync();
         this.body.password = bcryptjs.hashSync(this.body.password, salt);
 
-        try {
-            this.user = await LoginModel.create(this.body);
+        this.user = await LoginModel.create(this.body);
+    }
+
+    async login() {
+        this.valida();
+        if(this.erros.length > 0) return;
+        this.user = await LoginModel.findOne({email: this.body.email});
+        
+        if(!this.user) {
+            return this.erros.push("Usuário ou senha incorreto ou inválido");
         }
-        catch(err) {
-            console.log(err);
+        if(!bcryptjs.compareSync(this.body.password, this.user.password)) {
+            this.erros.push("Senha incorreta ou inválida");
+            this.user = null;
         }
     }
 
     async userExists() {
-        const user = await LoginModel.findOne({email: this.body.email});
-        if(user) this.erros.push("Usuário já existe");
+        this.user = await LoginModel.findOne({email: this.body.email});
+        if(this.user) this.erros.push("Usuário já existe");
     }
 
     valida() {
