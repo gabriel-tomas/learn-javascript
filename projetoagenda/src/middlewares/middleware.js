@@ -19,7 +19,7 @@ exports.csrfMiddleware = (req, res, next) => {
 
 exports.loginRequired = (req, res, next) => {
     if(!req.session.user) {
-        req.flash("errors", "Faça o login para cadastrar contatos");
+        req.flash("errors", "Faça o login para cadastrar, editar ou excluir contatos");
         req.session.save(() => res.redirect("/"));
         return;
     }

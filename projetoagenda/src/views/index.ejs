@@ -10,28 +10,30 @@
 
             <%- include("includes/messages") %>
 
-            <div class="responsive-table my-2">
-                <table class="table">
-                    <tr>
-                        <td>Nome</td>
-                        <td>Sobrenome</td>
-                        <td>55114343924</td>
-                        <td>email@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td>Nome</td>
-                        <td>Sobrenome</td>
-                        <td>55114343924</td>
-                        <td>email@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td>Nome</td>
-                        <td>Sobrenome</td>
-                        <td>55114343924</td>
-                        <td>email@gmail.com</td>
-                    </tr>
-                </table>
-            </div>
+            <% if(contatos.length > 0) {%>
+                <div class="responsive-table my-2">
+                    <table class="table">
+                        <% if(contatos) {%>
+                            <% contatos.forEach(contato => {%>
+                                <tr>
+                                    <td><%= contato.nome %></td>
+                                    <td><%= contato.sobrenome %></td>
+                                    <td><%= contato.email %></td>
+                                    <td><%= contato.telefone %></td>
+                                    <td>
+                                        <a href="/contato/index/<%= contato._id %>">Editar</a>
+                                    </td>
+                                    <td>
+                                        <a class="text-danger" href="/contato/delete/<%= contato._id %>">Excluir</a>
+                                    </td>
+                                </tr>
+                            <% }) %>
+                        <% } %>
+                    </table>
+                </div>
+            <% } else {%>
+                <p class="text-center lead my-5">Você não tem contatos salvos, cadastre um!</p>
+            <% } %>
 
         </div>
         <div class="col-lg-2"></div>
