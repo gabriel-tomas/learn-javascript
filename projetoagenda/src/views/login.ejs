@@ -16,7 +16,7 @@
                     <h2>Faça seu cadastro</h2>
                     <p>Caso ainda não tenha conta, preencha o formulário abaixo</p>
 
-                    <form action="/login/register" method="post">
+                    <form class="form-register" action="/login/register" method="post">
                         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                         <div class="form-group">
                           <label for="signup-email">Endereço de email</label>
@@ -31,11 +31,11 @@
 
                 </div>
 
-                <div class="col-lg">
+                <div class="col-lg my-5">
                     <h2>Faça seu login</h2>
                     <p>Já tem uma conta? faça o login abaixo</p>
 
-                    <form action="/login/login" method="post">
+                    <form class="form-login" action="/login/login" method="post">
                         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                         <div class="form-group">
                           <label for="login-email">Endereço de email</label>
