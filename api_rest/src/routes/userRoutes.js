@@ -1,9 +1,12 @@
 import userController from '../controllers/UserController';
 import { Router } from 'express'; // eslint-disable-line
+
+import loginRequired from '../middlewares/loginRequired';
+
 const router = new Router();
 
 router.post('/', userController.create);
-router.get('/', userController.index);
+router.get('/', loginRequired, userController.index);
 router.get('/:id', userController.show);
 router.put('/:id', userController.update);
 router.delete('/:id', userController.delete);
