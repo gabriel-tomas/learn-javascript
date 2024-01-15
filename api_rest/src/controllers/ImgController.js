@@ -8,22 +8,21 @@ const upload = multer(multerConfig).single('image');
 class ImgController {
   create(req, res) {
     return upload(req, res, async (err) => {
-      try {
-        if (err) {
-          return res.status(400).json({
-            errors: [err.code],
-          });
-        }
+      if (err) {
+        return res.status(400).json({
+          errors: [err.code],
+        });
+      }
 
+      try {
         const { originalname, filename } = req.file;
         const { aluno_id } = req.body;
-
         const foto = await Foto.create({ originalname, filename, aluno_id });
 
         return res.json(foto);
       } catch (e) {
         return res.status(400).json({
-          errors: ['id inválido', e],
+          errors: ['id inválido'],
         });
       }
     });
