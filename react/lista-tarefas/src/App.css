@@ -23,8 +23,9 @@ body {
 
 button {
   cursor: pointer;
+  border: none;
 }
 
-h1 {
-  text-align: center;
+input {
+  outline: none;
 }
