@@ -1,0 +1,19 @@
+.form {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.form > * {
+  padding: 10px;
+}
+
+.btn-submit {
+  background-color: var(--primary);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.btn-submit:active {
+  background-color: #6b8548;
+}

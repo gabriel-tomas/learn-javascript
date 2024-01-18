@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 import './Main.css';
-
-// Form
-// eslint-disable-next-line
-import { FaPlus } from 'react-icons/fa';
-
-// Tarefas
-// eslint-disable-next-line
-import { FaEdit, FaWindowClose } from 'react-icons/fa';
+import Form from './Form';
+import Tarefas from './Tarefas';
 
 export default class Main extends Component {
   state = {
@@ -17,7 +11,6 @@ export default class Main extends Component {
   };
 
   componentDidMount() {
-    console.log('componente montado');
     const tarefas = JSON.parse(localStorage.getItem('tarefas'));
 
     if (tarefas) {
@@ -92,28 +85,17 @@ export default class Main extends Component {
       <div className="main">
         <h1>Lista de tarefas</h1>
 
-        <form onSubmit={this.handleSubmit} action="#" className="form">
-          <input onChange={this.handleChange} className="input" type="text" value={novaTarefa} />
-          <button className="btn-submit" type="submit">
-            <FaPlus />
-          </button>
-        </form>
+        <Form
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          novaTarefa={novaTarefa}
+        />
 
-        <ul className="tarefas">
-          {tarefas.map((tarefa, index) => (
-            <li key={tarefa}>
-              {tarefa}
-              <div>
-                <button onClick={(e) => this.handleEditTarefa(e, index)} type="button" className="edit-tarefa">
-                  <FaEdit />
-                </button>
-                <button onClick={(e) => this.handleDeleteTarefa(e, index)} type="button" className="delete-tarefa">
-                  <FaWindowClose />
-                </button>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <Tarefas
+          tarefas={tarefas}
+          handleEditTarefa={this.handleEditTarefa}
+          handleDeleteTarefa={this.handleDeleteTarefa}
+        />
       </div>
     );
   }
