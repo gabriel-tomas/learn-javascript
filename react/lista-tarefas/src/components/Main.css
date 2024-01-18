@@ -14,8 +14,12 @@
 }
 
 input {
-  border-radius: 5px;
-  border: 1px solid #000;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-right: none;
 }
 
 input {
@@ -25,4 +29,23 @@ input {
 button {
   background-color: var(--primary);
   border: none;
+}
+
+.form {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.form > * {
+  padding: 10px;
+}
+
+.btn-submit {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.btn-submit:active {
+  background-color: #6b8548;
 }

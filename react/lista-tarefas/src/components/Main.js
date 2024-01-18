@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './Main.css';
 
+// Form
+// eslint-disable-next-line
+import { FaPlus } from 'react-icons/fa';
+
 export default class Main extends Component {
   state = {
     novaTarefa: '',
@@ -8,7 +12,7 @@ export default class Main extends Component {
 
   handleChange = (e) => {
     this.setState({
-      novaTarefa: e.target.querySelector('input').value,
+      novaTarefa: e.target.value,
     });
   };
 
@@ -19,9 +23,11 @@ export default class Main extends Component {
       <div className="main">
         <h1>Lista de tarefas</h1>
 
-        <form onSubmit={this.handleChange} action="#">
-          <input type="text" />
-          <button type="submit">Enviar</button>
+        <form onSubmit={this.handleChange} action="#" className="form">
+          <input onChange={this.handleChange} className="input" type="text" value={novaTarefa} />
+          <button className="btn-submit" type="submit" > {/* eslint-disable-line */}
+            <FaPlus />
+          </button>
         </form>
         <div className="tarefas">
           <span>{novaTarefa}</span>
