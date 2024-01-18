@@ -12,16 +12,52 @@ import { FaEdit, FaWindowClose } from 'react-icons/fa';
 export default class Main extends Component {
   state = {
     novaTarefa: '',
-    tarefas: [
-      'Fazer café',
-      'Tomar café',
-      'Tomar outro copo de café',
-    ],
+    tarefas: [],
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    let { novaTarefa } = this.state;
+    const { tarefas } = this.state;
+
+    novaTarefa = novaTarefa.trim();
+
+    if (tarefas.indexOf(novaTarefa) !== -1) return;
+
+    const newTarefas = [...tarefas, novaTarefa];
+
+    this.setState({
+      tarefas: [...newTarefas],
+    });
   };
 
   handleChange = (e) => {
     this.setState({
       novaTarefa: e.target.value,
+    });
+  };
+
+  handleDeleteTarefa = (e, index) => {
+    const { tarefas } = this.state;
+
+    const newTarefas = [...tarefas];
+
+    newTarefas.splice(index, 1);
+
+    this.setState({
+      tarefas: [...newTarefas],
+    });
+  };
+
+  handleEditTarefa = (e, index) => {
+    const { tarefas } = this.state;
+
+    const newTarefas = [...tarefas];
+
+    newTarefas.splice(index, 1);
+
+    this.setState({
+      tarefas: [...newTarefas],
     });
   };
 
@@ -32,7 +68,7 @@ export default class Main extends Component {
       <div className="main">
         <h1>Lista de tarefas</h1>
 
-        <form onSubmit={this.handleChange} action="#" className="form">
+        <form onSubmit={this.handleSubmit} action="#" className="form">
           <input onChange={this.handleChange} className="input" type="text" value={novaTarefa} />
           <button className="btn-submit" type="submit">
             <FaPlus />
@@ -40,14 +76,14 @@ export default class Main extends Component {
         </form>
 
         <ul className="tarefas">
-          {tarefas.map((tarefa) => (
-            <li key={tarefas.indexOf(tarefa)}>
+          {tarefas.map((tarefa, index) => (
+            <li key={tarefa}>
               {tarefa}
               <div>
-                <button type="button" className="edit-tarefa">
+                <button onClick={(e) => this.handleEditTarefa(e, index)} type="button" className="edit-tarefa">
                   <FaEdit />
                 </button>
-                <button type="button" className="delete-tarefa">
+                <button onClick={(e) => this.handleDeleteTarefa(e, index)} type="button" className="delete-tarefa">
                   <FaWindowClose />
                 </button>
               </div>
