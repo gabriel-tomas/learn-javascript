@@ -5,9 +5,18 @@ import './Main.css';
 // eslint-disable-next-line
 import { FaPlus } from 'react-icons/fa';
 
+// Tarefas
+// eslint-disable-next-line
+import { FaEdit, FaWindowClose } from 'react-icons/fa';
+
 export default class Main extends Component {
   state = {
     novaTarefa: '',
+    tarefas: [
+      'Fazer café',
+      'Tomar café',
+      'Tomar outro copo de café',
+    ],
   };
 
   handleChange = (e) => {
@@ -17,7 +26,7 @@ export default class Main extends Component {
   };
 
   render() {
-    const { novaTarefa } = this.state;
+    const { novaTarefa, tarefas } = this.state;
 
     return (
       <div className="main">
@@ -25,13 +34,26 @@ export default class Main extends Component {
 
         <form onSubmit={this.handleChange} action="#" className="form">
           <input onChange={this.handleChange} className="input" type="text" value={novaTarefa} />
-          <button className="btn-submit" type="submit" > {/* eslint-disable-line */}
+          <button className="btn-submit" type="submit">
             <FaPlus />
           </button>
         </form>
-        <div className="tarefas">
-          <span>{novaTarefa}</span>
-        </div>
+
+        <ul className="tarefas">
+          {tarefas.map((tarefa) => (
+            <li key={tarefas.indexOf(tarefa)}>
+              {tarefa}
+              <div>
+                <button type="button" className="edit-tarefa">
+                  <FaEdit />
+                </button>
+                <button type="button" className="delete-tarefa">
+                  <FaWindowClose />
+                </button>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     );
   }

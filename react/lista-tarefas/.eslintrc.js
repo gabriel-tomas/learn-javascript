@@ -24,6 +24,7 @@ module.exports = {
   },
   rules: {
     'react/jsx-filename-extension': 0,
-    'react/state-in-constructor': 'off',
+    'react/state-in-constructor': 0,
+    'jsx-a11y/control-has-associated-label': 0,
   },
 };
