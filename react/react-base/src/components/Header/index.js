@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaHome, FaUserAlt, FaSignInAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 import Wrapper, { Nav } from './styled';
 
@@ -10,18 +11,18 @@ export default function Header() {
     <Wrapper>
       <h1>Logo</h1>
       <Nav>
-        <a href="#">
+        <Link to="/">
           <FaHome size={iconSize} />
           <span>Home</span>
-        </a>
-        <a href="#">
+        </Link>
+        <Link to="/asdasdas">
           <FaUserAlt size={iconSize} />
           <span>Home</span>
-        </a>
-        <a href="#">
+        </Link>
+        <Link to="#">
           <FaSignInAlt size={iconSize} />
           <span>Home</span>
-        </a>
+        </Link>
       </Nav>
     </Wrapper>
   );
