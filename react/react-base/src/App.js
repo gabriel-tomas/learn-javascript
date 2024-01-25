@@ -1,14 +1,18 @@
 import React from 'react';
 
-import Login from './pages/Login';
 import GlobalStyles, { Main } from './styles/GlobalStyles';
+import Header from './components/Header';
+import Login from './pages/Login';
 
 function App() {
   return (
-    <Main>
-      <Login />
-      <GlobalStyles />
-    </Main>
+    <>
+      <Header />
+      <Main>
+        <Login />
+        <GlobalStyles />
+      </Main>
+    </>
   );
 }
 

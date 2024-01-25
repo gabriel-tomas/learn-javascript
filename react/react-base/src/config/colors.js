@@ -5,6 +5,8 @@ export default {
   secondary: '#6d3532',
   accent: '#b09854',
 
+  neutral1: '#ffffff33',
+
   messages: {
     success: '#85D550',
     info: '#51B3D6',
