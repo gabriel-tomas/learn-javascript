@@ -10,6 +10,7 @@ export default function Login() {
         <span>oi</span>
       </Title>
       <button>Enviar</button>
+      <a href="#">Link</a>
       <Paragrafo>Clique em cima para enviar</Paragrafo>
     </div>
   );

@@ -1,4 +1,5 @@
 import { createGlobalStyle, styled } from 'styled-components';
+import colors from '../config/colors';
 
 export default createGlobalStyle`
   * {
@@ -9,17 +10,22 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
-  html, button, input {
+  html, button, input, a {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 16px
+    font-size: 16px;
+    color: ${colors.text};
   }
 
   body {
-    background-color: #1c1c1c;
+    background-color: ${colors.background};
   }
 
   button {
-    background-color: unset;
+    background-color: ${colors.primary};
+    height: 35px;
+    padding-inline: 19px;
+    font-weight: 700;
+    border-radius: 100px;
   }
 
   button, a {
@@ -28,6 +34,12 @@ export default createGlobalStyle`
 
   a {
     text-decoration: none;
+    color: ${colors.text};
+    font-weight: 500;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 
   ul {
