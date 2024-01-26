@@ -3,11 +3,18 @@ import { toast } from 'react-toastify';
 
 import { Title, Paragrafo } from './styled';
 
+import axios from '../../services/axios';
+
 export default function Login() {
   toast.success('Oie');
-  toast.info('Oie');
-  toast.error('Oie');
-  toast.warn('Oie');
+  React.useEffect(() => {
+    async function getData() {
+      const response = await axios.get('/alunos');
+      const { data } = response;
+      console.log(data);
+    }
+    getData();
+  }, []);
 
   return (
     <div>
