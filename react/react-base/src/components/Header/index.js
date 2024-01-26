@@ -17,11 +17,11 @@ export default function Header() {
         </Link>
         <Link to="/asdasdas">
           <FaUserAlt size={iconSize} />
-          <span>Home</span>
+          <span>Usuário</span>
         </Link>
         <Link to="#">
           <FaSignInAlt size={iconSize} />
-          <span>Home</span>
+          <span>Logout</span>
         </Link>
       </Nav>
     </Wrapper>
