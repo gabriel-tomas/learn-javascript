@@ -1,8 +1,14 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 import { Title, Paragrafo } from './styled';
 
 export default function Login() {
+  toast.success('Oie');
+  toast.info('Oie');
+  toast.error('Oie');
+  toast.warn('Oie');
+
   return (
     <div>
       <Title>

@@ -8,9 +8,9 @@ export default {
   neutral1: '#ffffff33',
 
   messages: {
-    success: '#85D550',
-    info: '#51B3D6',
-    error: '#D55050',
-    warn: '#D5CE50',
+    success: '#577d3d',
+    info: '#3d6c7d',
+    error: '#7d3d3d',
+    warn: '#7d7d3d',
   },
 };
