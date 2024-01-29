@@ -2,14 +2,13 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import { Title, Paragrafo } from './styled';
+import * as actions from '../../store/modules/example/actions';
 
 export default function Login() {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch({
-      type: 'BOTAO_CLICADO',
-    });
+    dispatch(actions.clicaBotao());
   };
 
   return (

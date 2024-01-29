@@ -6,7 +6,9 @@ import { useSelector } from 'react-redux';
 import Wrapper, { Nav } from './styled';
 
 export default function Header() {
-  const botaoClicado = useSelector((state) => state.botaoClicado);
+  const botaoClicado = useSelector(
+    (state) => state.exampleReducer.botaoClicado,
+  );
   const iconSize = 17;
 
   return (
