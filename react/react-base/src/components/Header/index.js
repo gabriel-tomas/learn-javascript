@@ -1,10 +1,12 @@
 import React from 'react';
 import { FaHome, FaUserAlt, FaSignInAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import Wrapper, { Nav } from './styled';
 
 export default function Header() {
+  const botaoClicado = useSelector((state) => state.botaoClicado);
   const iconSize = 17;
 
   return (
@@ -23,6 +25,7 @@ export default function Header() {
           <FaSignInAlt size={iconSize} />
           <span>Logout</span>
         </Link>
+        <p>{botaoClicado ? 'Clicado' : 'Não clicado'}</p>
       </Nav>
     </Wrapper>
   );
