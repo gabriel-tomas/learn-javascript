@@ -5,9 +5,9 @@ import * as actions from './actions';
 import * as types from '../types';
 
 const requisicao = () => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
-      reject();
+      resolve();
     }, 1000);
   });
 };
