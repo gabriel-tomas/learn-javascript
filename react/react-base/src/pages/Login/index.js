@@ -8,7 +8,7 @@ export default function Login() {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(actions.clicaBotao());
+    dispatch(actions.clicaBotaoRequest());
   };
 
   return (
