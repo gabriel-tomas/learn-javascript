@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export default axios.create({
-  baseURL: 'URL_HERE',
+  baseURL: 'https://www.gabrieltomas.com.br/',
 });
