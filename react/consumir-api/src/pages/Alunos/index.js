@@ -4,6 +4,7 @@ import { FaUser, FaEdit, FaWindowClose } from 'react-icons/fa';
 
 import axios from '../../services/axios';
 import { ContainerAlunos, AlunoContainer } from './styled';
+import { Title } from '../../styles/TitleCenter';
 
 export default function Alunos() {
   const [alunos, setAlunos] = useState([]);
@@ -18,7 +19,7 @@ export default function Alunos() {
 
   return (
     <div>
-      <h1>Alunos</h1>
+      <Title>Alunos</Title>
       <ContainerAlunos>
         {alunos.length > 0
           ? alunos.map((aluno) => (
