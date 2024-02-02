@@ -6,19 +6,25 @@ import axios from '../../services/axios';
 import { ContainerAlunos, AlunoContainer } from './styled';
 import { Title } from '../../styles/TitleCenter';
 
+import Loading from '../../components/Loading';
+
 export default function Alunos() {
   const [alunos, setAlunos] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   React.useEffect(() => {
+    setIsLoading(true);
     const getAlunos = async () => {
       const res = await axios.get('/alunos');
       setAlunos(res.data.alunos);
+      setIsLoading(false);
     };
     getAlunos();
   }, []);
 
   return (
     <div>
+      <Loading isLoading={isLoading} />
       <Title>Alunos</Title>
       <ContainerAlunos>
         {alunos.length > 0

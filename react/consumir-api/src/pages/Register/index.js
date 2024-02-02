@@ -7,11 +7,13 @@ import { Form } from '../../styles/Form';
 import { Title } from '../../styles/TitleCenter';
 import axios from '../../services/axios';
 import history from '../../services/history';
+import Loading from '../../components/Loading';
 
 export default function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,6 +34,7 @@ export default function Register() {
 
     if (formError) return;
 
+    setIsLoading(true);
     try {
       const body = {
         nome: name,
@@ -45,11 +48,14 @@ export default function Register() {
     } catch (e) {
       const errors = get(e, 'response.data.errors', []);
       errors.forEach((err) => toast.error(err));
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <div>
+      <Loading isLoading={isLoading} />
       <Title>Crie sua conta</Title>
       <Form onSubmit={handleSubmit}>
         <div className="container-input">
