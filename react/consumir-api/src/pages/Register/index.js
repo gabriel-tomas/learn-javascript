@@ -1,19 +1,31 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { isEmail } from 'validator';
-import { get } from 'lodash';
 
 import { Form } from '../../styles/Form';
 import { Title } from '../../styles/TitleCenter';
-import axios from '../../services/axios';
-import history from '../../services/history';
 import Loading from '../../components/Loading';
+import * as actions from '../../store/modules/auth/actions';
 
 export default function Register() {
+  const dispatch = useDispatch();
+
+  const id = useSelector((state) => state.auth.user.id);
+  const nameStored = useSelector((state) => state.auth.user.nome);
+  const emailStored = useSelector((state) => state.auth.user.email);
+  const isLoading = useSelector((state) => state.auth.isLoading);
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+
+  React.useEffect(() => {
+    if (!id) return;
+
+    setName(nameStored);
+    setEmail(emailStored);
+  }, [nameStored, id, emailStored]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,36 +39,20 @@ export default function Register() {
       formError = true;
       toast.error('Email inválido');
     }
-    if (password.length < 6 || password.length > 32) {
+    if (!id && (password.length < 6 || password.length > 32)) {
       formError = true;
       toast.error('Senha deve ter entre 6 e 32 caracteres');
     }
 
     if (formError) return;
 
-    setIsLoading(true);
-    try {
-      const body = {
-        nome: name,
-        email: email,
-        password: password,
-      };
-      await axios.post('/users', { ...body });
-
-      toast.success('Conta criada com sucesso');
-      history.push('/login');
-    } catch (e) {
-      const errors = get(e, 'response.data.errors', []);
-      errors.forEach((err) => toast.error(err));
-    } finally {
-      setIsLoading(false);
-    }
+    dispatch(actions.registerRequest({ name, email, password, id }));
   };
 
   return (
     <div>
       <Loading isLoading={isLoading} />
-      <Title>Crie sua conta</Title>
+      <Title>{id ? 'Edite seus dados' : 'Crie sua conta'}</Title>
       <Form onSubmit={handleSubmit}>
         <div className="container-input">
           <label htmlFor="name">Nome: </label>
@@ -86,7 +82,9 @@ export default function Register() {
           />
         </div>
         <div className="container-submit">
-          <button type="submit">Criar minha conta</button>
+          <button type="submit">
+            {id ? 'Salvar dados' : 'Criar minha conta'}
+          </button>
         </div>
       </Form>
     </div>
