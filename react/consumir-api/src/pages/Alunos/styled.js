@@ -35,7 +35,15 @@ export const AlunoContainer = styled.div`
     object-fit: cover;
   }
 
-  .edit-aluno > a:nth-child(1)  {
-    margin-right: .5rem;
+  .edit-aluno > a + a  {
+    margin-left: .5rem;
+  }
+
+  .cancel-aluno-btn {
+    color: #bababa;
+  }
+
+  .delete-aluno-btn {
+    color: #c21717;
   }
 `;
