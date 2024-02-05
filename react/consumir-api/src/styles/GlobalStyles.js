@@ -73,4 +73,5 @@ export const Main = styled.main`
   max-width: 960px;
   padding-inline: clamp(1rem, 5vw, 3rem);
   margin-inline: auto;
+  margin-bottom: 3rem;
 `;

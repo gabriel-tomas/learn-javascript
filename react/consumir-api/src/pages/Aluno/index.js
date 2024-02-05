@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { isEmail } from 'validator';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
+import { FaUserCircle, FaEdit } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 import axios from '../../services/axios';
 import history from '../../services/history';
@@ -12,6 +14,7 @@ import * as actions from '../../store/modules/auth/actions';
 import Loading from '../../components/Loading';
 
 import { Form } from '../../styles/Form';
+import { Title, ProfilePicture } from './styled';
 
 export default function Aluno({ match }) {
   const dispatch = useDispatch();
@@ -25,6 +28,7 @@ export default function Aluno({ match }) {
   const [peso, setPeso] = React.useState('');
   const [altura, setAltura] = React.useState('');
   const [isLoading, setIsLoading] = React.useState(false);
+  const [photo, setPhoto] = React.useState('');
 
   React.useEffect(() => {
     if (!id) return;
@@ -33,6 +37,8 @@ export default function Aluno({ match }) {
       try {
         setIsLoading(true);
         const res = await axios.get(`/alunos/${id}`);
+        setPhoto(get(res.data, 'Fotos[0].url', ''));
+
         setNome(res.data.nome);
         setSobrenome(res.data.sobrenome);
         setEmail(res.data.email);
@@ -152,7 +158,21 @@ export default function Aluno({ match }) {
   return (
     <div>
       <Loading isLoading={isLoading} />
-      <h1>{id ? 'Editar aluno' : 'Novo aluno'}</h1>
+      <Title>{id ? 'Editar aluno' : 'Novo aluno'}</Title>
+
+      {id && (
+        <ProfilePicture>
+          {photo ? (
+            <img src={photo} alt={nome} crossOrigin="" />
+          ) : (
+            <FaUserCircle size={100} />
+          )}
+          <Link to={`/fotos/${id}`}>
+            <FaEdit />
+          </Link>
+        </ProfilePicture>
+      )}
+
       <Form onSubmit={handleSubmit}>
         <div className="container-input">
           <label htmlFor="name">Nome: </label>
