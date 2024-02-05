@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import colors from '../../config/colors';
 
 export const ContainerAlunos = styled.div`
   margin-top: 2rem;
@@ -46,4 +48,18 @@ export const AlunoContainer = styled.div`
   .delete-aluno-btn {
     color: #c21717;
   }
+`;
+
+export const ContainerNewAluno = styled.div`
+  display: flex;
+  justify-content: right;
+  gap: .3rem;
+  align-items: center;
+  padding-top: 2rem;
+  padding-right: 1rem;
+`;
+
+export const NewAluno = styled(Link)`
+  display: block;
+  color: ${colors.text};
 `;

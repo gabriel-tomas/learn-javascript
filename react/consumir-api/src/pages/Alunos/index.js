@@ -6,12 +6,18 @@ import {
   FaWindowClose,
   FaBan,
   FaBackspace,
+  FaPlus,
 } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import { get } from 'lodash';
 
 import axios from '../../services/axios';
-import { ContainerAlunos, AlunoContainer } from './styled';
+import {
+  ContainerAlunos,
+  AlunoContainer,
+  NewAluno,
+  ContainerNewAluno,
+} from './styled';
 import { Title } from '../../styles/TitleCenter';
 
 import Loading from '../../components/Loading';
@@ -23,9 +29,14 @@ export default function Alunos() {
   React.useEffect(() => {
     setIsLoading(true);
     const getAlunos = async () => {
-      const res = await axios.get('/alunos');
-      setAlunos(res.data.alunos);
-      setIsLoading(false);
+      try {
+        const res = await axios.get('/alunos');
+        setAlunos(res.data.alunos);
+        setIsLoading(false);
+      } catch (e) {
+        toast.error('Ocorreu um erro ao tentar buscar os alunos');
+        setIsLoading(false);
+      }
     };
     getAlunos();
   }, []);
@@ -73,6 +84,10 @@ export default function Alunos() {
     <div>
       <Loading isLoading={isLoading} />
       <Title>Alunos</Title>
+      <ContainerNewAluno>
+        <FaPlus />
+        <NewAluno to="/aluno/">Novo Aluno</NewAluno>
+      </ContainerNewAluno>
       <ContainerAlunos>
         {alunos.length > 0
           ? alunos.map((aluno, index) => (
