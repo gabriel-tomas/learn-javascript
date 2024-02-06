@@ -1,0 +1,15 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+  gap: 1rem;
+}
+
+ul li a {
+  color: #fff;
+}
