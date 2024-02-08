@@ -1,0 +1,1 @@
+module.exports = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz ¨¬ 0123456789 , + - )(₢°'
