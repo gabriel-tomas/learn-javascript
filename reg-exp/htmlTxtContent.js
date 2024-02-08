@@ -1,0 +1,1 @@
+module.exports = `<p>Olá, Mundo!</p><br/><p>Olá de novo</p>`;
