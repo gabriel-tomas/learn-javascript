@@ -30,4 +30,4 @@ Os Ips são:
 
 `;
 
-module.exports = {cpfs, ips};
+module.exports = {cpfs, cpfs2, ips};
